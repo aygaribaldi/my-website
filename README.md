@@ -1,3 +1,3 @@
 ## Welcome!
 
-Navigate to my [website](www.alexgaribaldi.com)
+Hi! Here is my personal [website](www.alexgaribaldi.com)

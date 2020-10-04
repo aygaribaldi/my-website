@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Route
         exact
-        path={`/`}
+        path="/"
         render={(routerProps) => <Home routerProps={routerProps} />}
       />
     </div>

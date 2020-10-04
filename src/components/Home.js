@@ -1,38 +1,41 @@
-import React from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+
 import "../styles/App.css";
 import Nav from "./Nav";
-import profile from "../images/me.svg";
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  },
-}));
+import profile from "../images/profile.svg";
+
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  return size[0];
+}
 
 export default function Home() {
-  const classes = useStyles();
-
   return (
-    <div className="App">
-      <Grid container spacing={1} justify="flex-start">
+    <div
+      className={`background${useWindowSize() < 960 ? "mobile" : "desktop"}`}
+    >
+      <Grid item container spacing={2}>
         <Grid item sm={12} md={1}>
-          <Paper className={classes.paper}>
-            <Nav />
-          </Paper>
+          <Nav />
         </Grid>
-        <Grid item sm={12} md={3} className="intro">
+        <Grid alignItems="stretch" item sm={12} md={4}>
           <h1>HI!</h1>
-          <h3>I am a Software Engineer, Graphic Designer, and Musician</h3>
+          <h3>I'm a software engineer, graphic designer, and musician</h3>
         </Grid>
-        <Grid item sm={12} md={6}>
-          <img alt="complex" src={profile} />
+        <Grid item sm={12} md={7}>
+          <img src={profile} alt="profile" />
         </Grid>
       </Grid>
     </div>

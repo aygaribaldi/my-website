@@ -1,37 +1,33 @@
 .App {
-  background: linear-gradient(90deg, #98dcc5 50%, #2759fa 50%);
-  min-height: 100vh;
-  display: flex;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
   overflow: hidden;
 }
 
-.App img {
-  width: 90%;
-  height: 80%;
+.backgroundmobile {
+  background: #98dcc5;
+  min-height: 100vh;
 }
 
-.intro {
+.backgrounddesktop {
+  min-height: 100vh;
+  background: linear-gradient(90deg, #98dcc5 50%, #2759fa 50%);
+}
+
+.backgrounddesktop h1 {
+  padding-top: 1em;
   color: black;
-  font-family: "share_tech_monoregular", sans-serif;
-  font-weight: normal;
-  font-style: normal;
+  font-size: 400%;
 }
-/* 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-} */
 
+.backgrounddesktop img {
+  padding-top: 20px;
+  height: 70%;
+}
 /* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-} */
-
-/* .App-link {
-  color: #61dafb;
 } */
 
 /* @keyframes App-logo-spin {
